@@ -8,6 +8,7 @@
     "start": "next start",
     "start:prod": "node server.js",
     "lint": "eslint",
+    "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
