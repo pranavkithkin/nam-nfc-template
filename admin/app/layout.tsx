@@ -16,6 +16,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "NAM Admin Panel",
   description: "NAM UAE NFC Card Management System",
+  icons: {
+    icon: "/nam-logo.png",
+    apple: "/nam-logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -17,9 +17,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!card) return { title: "Card Not Found | NAM" };
 
+  // Favicon: company logo → NAM logo fallback
+  const faviconUrl = card.company?.logoUrl || "/nam-logo.png";
+
   return {
     title: `${card.name} — Digital Business Card | Powered by NAM`,
     description: card.bio || `${card.name} · ${card.title || ""} · Powered by NAM UAE`,
+    icons: {
+      icon: faviconUrl,
+      apple: faviconUrl,
+    },
     openGraph: {
       title: `${card.name} — Digital Business Card`,
       description: `${card.title || ""} ${card.company ? `at ${card.company.name}` : ""}`,
