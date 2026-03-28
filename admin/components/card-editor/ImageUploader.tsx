@@ -154,17 +154,12 @@ export default function ImageUploader({ label, hint, value, onChange, folder, as
       {error && <p className="text-xs text-red-400 mt-1.5">{error}</p>}
 
       {value && (
-        <div className="flex items-center gap-2 mt-2">
-          <input
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="Or paste image URL…"
-            className="flex-1 bg-white/4 border border-white/8 rounded-lg px-3 py-1.5 text-xs font-mono text-white/50 focus:outline-none focus:border-gold/30 transition-all"
-          />
-          <button onClick={() => onChange("")} className="text-xs text-white/30 hover:text-red-400 transition-colors">
-            Remove
-          </button>
-        </div>
+        <button
+          onClick={() => onChange("")}
+          className="mt-1.5 text-xs text-white/25 hover:text-red-400 transition-colors"
+        >
+          Remove image
+        </button>
       )}
 
       <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} className="hidden" />
