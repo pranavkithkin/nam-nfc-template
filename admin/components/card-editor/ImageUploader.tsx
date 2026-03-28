@@ -37,11 +37,14 @@ export default function ImageUploader({ label, hint, value, onChange, folder }: 
           body: JSON.stringify({ dataUri: reader.result, folder }),
         });
 
-        if (!res.ok) throw new Error("Upload failed");
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || "Upload failed");
+        }
         const { url } = await res.json();
         onChange(url);
-      } catch {
-        setError("Upload failed. Check Cloudinary credentials.");
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Upload failed. Please try again.");
       } finally {
         setUploading(false);
       }
@@ -84,6 +87,14 @@ export default function ImageUploader({ label, hint, value, onChange, folder }: 
                 <p className="text-xs text-white/20">JPG, PNG, WebP · Max 5MB</p>
               </>
             )}
+          </div>
+        )}
+
+        {/* uploading overlay — shown whether or not an image exists */}
+        {uploading && (
+          <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-2 rounded-xl">
+            <div className="w-6 h-6 border-2 border-gold/40 border-t-gold rounded-full animate-spin" />
+            <p className="text-xs text-white/60">Uploading…</p>
           </div>
         )}
       </div>
