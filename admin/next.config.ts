@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "**.supabase.co" },
+      { protocol: "https", hostname: "botkzlznzftdluyhroot.supabase.co" },
     ],
   },
   // Allow server actions and API routes to call Prisma without bundling issues

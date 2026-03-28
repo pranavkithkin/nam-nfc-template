@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { uploadImage } from "@/lib/cloudinary";
+import { uploadToSupabase } from "@/lib/supabaseStorage";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
@@ -14,10 +14,13 @@ export async function POST(req: NextRequest) {
     if (!dataUri) {
       return NextResponse.json({ error: "No image data provided" }, { status: 400 });
     }
-    const url = await uploadImage(dataUri, folder || "nam-nfc");
+
+    // Map folder name to bucket: "avatars" or "covers"
+    const bucket = folder === "covers" ? "covers" : "avatars";
+    const url = await uploadToSupabase(dataUri, bucket);
     return NextResponse.json({ url });
   } catch (error) {
     console.error("Upload error:", error);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    return NextResponse.json({ error: "Upload failed. Check Supabase Storage." }, { status: 500 });
   }
 }
