@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function LoginPage() {
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -33,6 +33,56 @@ export default function LoginPage() {
     }
   }
 
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div>
+        <label className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
+          Email
+        </label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          autoComplete="email"
+          placeholder="you@namuae.com"
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all"
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
+          Password
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          autoComplete="current-password"
+          placeholder="••••••••"
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all"
+        />
+      </div>
+
+      {error && (
+        <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2">
+          {error}
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-gold-gradient text-navy font-heading font-bold py-3 rounded-xl text-sm tracking-wide hover:shadow-gold transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-1"
+      >
+        {loading ? "Signing in…" : "Sign In"}
+      </button>
+    </form>
+  );
+}
+
+export default function LoginPage() {
   return (
     <div className="min-h-screen bg-navy flex items-center justify-center px-4">
       {/* Background glow */}
@@ -66,51 +116,9 @@ export default function LoginPage() {
             NAM staff access only
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
-                Email
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoComplete="email"
-                placeholder="you@namuae.com"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
-                Password
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                autoComplete="current-password"
-                placeholder="••••••••"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all"
-              />
-            </div>
-
-            {error && (
-              <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2">
-                {error}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gold-gradient text-navy font-heading font-bold py-3 rounded-xl text-sm tracking-wide hover:shadow-gold transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-1"
-            >
-              {loading ? "Signing in…" : "Sign In"}
-            </button>
-          </form>
+          <Suspense fallback={<div className="text-white/50 text-sm text-center py-4">Loading...</div>}>
+            <LoginForm />
+          </Suspense>
         </div>
 
         <p className="text-center text-xs text-white/25 mt-6">
