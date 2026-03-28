@@ -3,24 +3,7 @@
 // CardPreview — renders the NAM card template in-place using React.
 // Mirrors the exact structure of the public /c/[slug] page for real-time preview.
 
-const PLATFORM_COLORS: Record<string, string> = {
-  linkedin: "linear-gradient(135deg, #0077B5, #00a0dc)",
-  instagram: "linear-gradient(135deg, #833AB4, #E1306C, #F77737)",
-  twitter: "linear-gradient(135deg, #1a1a1a, #333)",
-  whatsapp: "linear-gradient(135deg, #25D366, #128C7E)",
-  facebook: "linear-gradient(135deg, #1877F2, #42a5f5)",
-  youtube: "linear-gradient(135deg, #FF0000, #ff4444)",
-  tiktok: "linear-gradient(135deg, #000000, #25F4EE)",
-  snapchat: "linear-gradient(135deg, #FFFC00, #ffd600)",
-  behance: "linear-gradient(135deg, #1769FF, #0050ff)",
-  github: "linear-gradient(135deg, #333, #24292e)",
-  telegram: "linear-gradient(135deg, #0088cc, #229ED9)",
-  dribbble: "linear-gradient(135deg, #EA4C89, #c7254e)",
-  pinterest: "linear-gradient(135deg, #E60023, #bd081c)",
-  spotify: "linear-gradient(135deg, #1DB954, #1ed760)",
-  website: "linear-gradient(135deg, #d4a853, #f5cf8a)",
-};
-
+import { PLATFORM_COLORS, PlatformIcon } from "@/lib/platformIcons";
 interface SLink { platform: string; url: string; label: string; order: number }
 interface Company { id: string; name: string }
 
@@ -165,8 +148,10 @@ export default function CardPreview({ form, companies }: Props) {
                 <div style={{
                   width: "32px", height: "32px", borderRadius: "8px",
                   background: PLATFORM_COLORS[link.platform] || PLATFORM_COLORS.website,
-                  flexShrink: 0,
-                }} />
+                  flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center"
+                }}>
+                  <PlatformIcon platform={link.platform} size={16} />
+                </div>
                 <span style={{ flex: 1, fontSize: "13px", fontWeight: "500" }}>{link.label || link.platform}</span>
                 <span style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px" }}>›</span>
               </div>
