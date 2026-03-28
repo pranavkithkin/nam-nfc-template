@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// Build: 2026-03-28
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
