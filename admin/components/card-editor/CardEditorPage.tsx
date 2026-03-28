@@ -246,17 +246,19 @@ export default function CardEditorPage({
             <>
               <ImageUploader
                 label="Profile Photo"
-                hint="Square image, min 400×400px"
+                hint="Square image — any size, will be cropped & compressed"
                 value={form.avatarUrl}
                 onChange={(url) => update("avatarUrl", url)}
-                folder="nam-nfc/avatars"
+                folder="avatars"
+                aspect={1}
               />
               <ImageUploader
                 label="Cover / Banner"
-                hint="Wide image, min 1200×400px"
+                hint="Wide image — any size, will be cropped & compressed"
                 value={form.coverUrl}
                 onChange={(url) => update("coverUrl", url)}
-                folder="nam-nfc/covers"
+                folder="covers"
+                aspect={3}
               />
             </>
           )}
