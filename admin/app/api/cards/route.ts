@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
-  const { socialLinks, ...cardData } = body;
+  const { socialLinks, id: _id, company, createdAt, updatedAt, ...cardData } = body;
 
   if (cardData.companyId === "") {
     cardData.companyId = null;

@@ -29,7 +29,7 @@ export async function PUT(
 
   const { id } = await params;
   const body = await req.json();
-  const { socialLinks, ...cardData } = body;
+  const { socialLinks, id: _id, company, createdAt, updatedAt, ...cardData } = body;
 
   if (cardData.companyId === "") {
     cardData.companyId = null;

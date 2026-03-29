@@ -266,44 +266,21 @@ export default function PublicCardPage({ card, isPreview }: Props) {
         </section>
       )}
 
-      {/* NAM Footer */}
-      <footer style={{ position: "relative", marginTop: "20px", padding: "40px 24px 30px", background: card.colorSecondary, borderTop: "1px solid rgba(255,255,255,0.08)", textAlign: "center", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-50%", left: "50%", transform: "translateX(-50%)", width: "300px", height: "300px", background: `radial-gradient(circle, rgba(${parseInt(accent.slice(1,3),16)},${parseInt(accent.slice(3,5),16)},${parseInt(accent.slice(5,7),16)},0.08) 0%, transparent 70%)`, pointerEvents: "none" }} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "480px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "20px" }}>
-            <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: "36px", fontWeight: "800", letterSpacing: "6px", background: accentGrad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>NAM</span>
-            <div style={{ fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginTop: "2px" }}>Noor Al Masafi</div>
-            <div style={{ fontFamily: "'Outfit',sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.5)", fontStyle: "italic", marginTop: "6px" }}>Solutions Beyond Expectations</div>
-          </div>
-
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "6px", margin: "20px 0", fontSize: "12px", color: "rgba(255,255,255,0.45)" }}>
-            {["Digital Printing", "Corporate Gifts", "NFC Cards", "Custom Uniforms"].map((s, i, arr) => (
-              <span key={s}>{s}{i < arr.length - 1 && <span style={{ color: accent, margin: "0 6px" }}>•</span>}</span>
-            ))}
-          </div>
-
-          <a href="https://www.namuae.com" target="_blank" rel="noopener" style={{
-            display: "inline-flex", alignItems: "center", gap: "10px",
-            padding: "14px 32px", background: accentGrad, color: card.colorPrimary,
-            fontFamily: "'Outfit',sans-serif", fontSize: "15px", fontWeight: "700",
-            borderRadius: "50px", textDecoration: "none", margin: "8px 0 24px",
-            boxShadow: `0 4px 20px rgba(${parseInt(accent.slice(1,3),16)},${parseInt(accent.slice(3,5),16)},${parseInt(accent.slice(5,7),16)},0.3)`,
-          }}>
-            Get Your NFC Card
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "18px", height: "18px" }}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", fontSize: "13px", marginBottom: "20px" }}>
-            <a href="tel:+971501361811" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>+971 50 136 1811</a>
-            <span style={{ color: accent }}>•</span>
-            <a href="mailto:info@namuae.com" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>info@namuae.com</a>
-          </div>
-
-          <div style={{ paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.08)", fontSize: "12px", color: "rgba(255,255,255,0.35)" }}>
-            <p style={{ marginBottom: "4px" }}>© 2026 Noor Al Masafi (NAM). All rights reserved.</p>
-            <a href="https://www.namuae.com" target="_blank" rel="noopener" style={{ color: accent, fontWeight: "500" }}>www.namuae.com</a>
-          </div>
-        </div>
+      {/* NAM Branding Footer */}
+      <footer style={{ marginTop: "30px", padding: "0 24px 40px", textAlign: "center", display: "flex", justifyContent: "center" }}>
+        <a href="https://www.namuae.com" target="_blank" rel="noopener noreferrer" style={{
+          display: "inline-flex", flexDirection: "column", alignItems: "center", gap: "8px", 
+          textDecoration: "none", opacity: 0.6, transition: "opacity 0.3s", cursor: "pointer"
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = "1"}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = "0.6"}
+        >
+          <span style={{ fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", fontFamily: "'Outfit',sans-serif", fontWeight: "600" }}>
+            Powered by
+          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/nam-logo.png" alt="NAM Logo" style={{ height: "24px", width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(255,255,255,0.1))" }} />
+        </a>
       </footer>
 
       <style>{`
