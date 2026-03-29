@@ -41,6 +41,10 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { socialLinks, ...cardData } = body;
 
+  if (cardData.companyId === "") {
+    cardData.companyId = null;
+  }
+
   const existing = await prisma.card.findUnique({ where: { slug: cardData.slug } });
   if (existing) {
     return NextResponse.json({ error: "Slug already taken" }, { status: 400 });

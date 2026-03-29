@@ -31,6 +31,10 @@ export async function PUT(
   const body = await req.json();
   const { socialLinks, ...cardData } = body;
 
+  if (cardData.companyId === "") {
+    cardData.companyId = null;
+  }
+
   await prisma.socialLink.deleteMany({ where: { cardId: id } });
 
   const card = await prisma.card.update({
