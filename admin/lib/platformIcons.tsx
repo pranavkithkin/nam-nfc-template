@@ -1,21 +1,26 @@
 // Shared platform icons and colors used across the admin panel and preview
 
 export const PLATFORM_COLORS: Record<string, string> = {
-  linkedin:  "linear-gradient(135deg, #0077B5, #00a0dc)",
-  instagram: "linear-gradient(135deg, #833AB4, #E1306C, #F77737)",
-  twitter:   "linear-gradient(135deg, #1a1a1a, #434343)",
-  whatsapp:  "linear-gradient(135deg, #25D366, #128C7E)",
-  facebook:  "linear-gradient(135deg, #1877F2, #42a5f5)",
-  youtube:   "linear-gradient(135deg, #FF0000, #cc0000)",
-  tiktok:    "linear-gradient(135deg, #010101, #69C9D0)",
-  snapchat:  "linear-gradient(135deg, #FFFC00, #ffd600)",
-  telegram:  "linear-gradient(135deg, #0088cc, #229ED9)",
-  behance:   "linear-gradient(135deg, #1769FF, #0050ff)",
-  github:    "linear-gradient(135deg, #24292e, #444)",
-  dribbble:  "linear-gradient(135deg, #EA4C89, #c7254e)",
-  pinterest: "linear-gradient(135deg, #E60023, #bd081c)",
-  spotify:   "linear-gradient(135deg, #1DB954, #1ed760)",
-  website:   "linear-gradient(135deg, #d4a853, #f5cf8a)",
+  linkedin:      "linear-gradient(135deg, #0077B5, #00a0dc)",
+  instagram:     "linear-gradient(135deg, #833AB4, #E1306C, #F77737)",
+  twitter:       "linear-gradient(135deg, #1a1a1a, #434343)",
+  whatsapp:      "linear-gradient(135deg, #25D366, #128C7E)",
+  facebook:      "linear-gradient(135deg, #1877F2, #42a5f5)",
+  youtube:       "linear-gradient(135deg, #FF0000, #cc0000)",
+  tiktok:        "linear-gradient(135deg, #010101, #69C9D0)",
+  snapchat:      "linear-gradient(135deg, #FFFC00, #ffd600)",
+  telegram:      "linear-gradient(135deg, #0088cc, #229ED9)",
+  behance:       "linear-gradient(135deg, #1769FF, #0050ff)",
+  github:        "linear-gradient(135deg, #24292e, #444)",
+  dribbble:      "linear-gradient(135deg, #EA4C89, #c7254e)",
+  pinterest:     "linear-gradient(135deg, #E60023, #bd081c)",
+  spotify:       "linear-gradient(135deg, #1DB954, #1ed760)",
+  google_review: "linear-gradient(135deg, #4285F4, #34A853)",
+  maps:          "linear-gradient(135deg, #34A853, #4285F4)",
+  photos:        "linear-gradient(135deg, #FF6B35, #F7931E)",
+  bank_account:  "linear-gradient(135deg, #1a3a5c, #2d6a9f)",
+  profile:       "linear-gradient(135deg, #6C3CE1, #9b59b6)",
+  website:       "linear-gradient(135deg, #d4a853, #f5cf8a)",
 };
 
 export const PLATFORM_ICON_SVG: Record<string, string> = {
@@ -47,25 +52,40 @@ export const PLATFORM_ICON_SVG: Record<string, string> = {
 
   spotify: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`,
 
+  google_review: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M21.805 10.023H12.2v3.955h5.49c-.237 1.245-.952 2.3-2.027 3.007v2.504h3.282c1.919-1.766 3.026-4.367 3.026-7.418 0-.721-.063-1.416-.166-2.048zM12.2 22c2.754 0 5.063-.913 6.749-2.511l-3.282-2.504c-.913.611-2.08.971-3.467.971-2.665 0-4.923-1.8-5.73-4.222H3.08v2.584C4.76 19.892 8.24 22 12.2 22zM6.47 13.734A5.93 5.93 0 0 1 6.16 12c0-.601.104-1.185.31-1.734V7.682H3.08A9.962 9.962 0 0 0 2 12c0 1.607.387 3.127 1.08 4.318l3.39-2.584zM12.2 5.544c1.5 0 2.847.515 3.908 1.527l2.929-2.929C17.254 2.495 14.945 1.5 12.2 1.5 8.24 1.5 4.76 3.608 3.08 7.182l3.39 2.584C7.277 7.344 9.535 5.544 12.2 5.544z"/></svg>`,
+
+  maps: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+
+  photos: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>`,
+
+  bank_account: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zM11.5 1L2 6v2h19V6l-9.5-5z"/></svg>`,
+
+  profile: `<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`,
+
   website: `<svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" strokeLinecap="round"/></svg>`,
 };
 
 export const PLATFORMS = [
-  { value: "linkedin",  label: "LinkedIn" },
-  { value: "instagram", label: "Instagram" },
-  { value: "whatsapp",  label: "WhatsApp" },
-  { value: "twitter",   label: "X / Twitter" },
-  { value: "facebook",  label: "Facebook" },
-  { value: "youtube",   label: "YouTube" },
-  { value: "tiktok",    label: "TikTok" },
-  { value: "snapchat",  label: "Snapchat" },
-  { value: "telegram",  label: "Telegram" },
-  { value: "behance",   label: "Behance" },
-  { value: "github",    label: "GitHub" },
-  { value: "dribbble",  label: "Dribbble" },
-  { value: "pinterest", label: "Pinterest" },
-  { value: "spotify",   label: "Spotify" },
-  { value: "website",   label: "Website" },
+  { value: "linkedin",     label: "LinkedIn" },
+  { value: "instagram",    label: "Instagram" },
+  { value: "whatsapp",     label: "WhatsApp" },
+  { value: "twitter",      label: "X / Twitter" },
+  { value: "facebook",     label: "Facebook" },
+  { value: "youtube",      label: "YouTube" },
+  { value: "tiktok",       label: "TikTok" },
+  { value: "snapchat",     label: "Snapchat" },
+  { value: "telegram",     label: "Telegram" },
+  { value: "behance",      label: "Behance" },
+  { value: "github",       label: "GitHub" },
+  { value: "dribbble",     label: "Dribbble" },
+  { value: "pinterest",    label: "Pinterest" },
+  { value: "spotify",      label: "Spotify" },
+  { value: "google_review", label: "Google Review" },
+  { value: "maps",         label: "Location / Maps" },
+  { value: "photos",       label: "Photos" },
+  { value: "bank_account", label: "Bank Account" },
+  { value: "profile",      label: "Profile" },
+  { value: "website",      label: "Website" },
 ];
 
 /** Renders the brand icon as an img (safe for both editor + preview) */
